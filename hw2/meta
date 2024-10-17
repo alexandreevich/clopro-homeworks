@@ -1,0 +1,21 @@
+#cloud-config
+users:
+  - name: g**
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-key
+package_update: true
+package_upgrade: true
+write_files:
+  - path: /var/www/html/index.html
+    content: |
+      <html>
+      <head><title>Welcome to LAMP</title></head>
+      <body>
+         <h1>Welcome to LAMP</h1>
+         <p>This is a LAMP server.</p>
+         <img src="https://storage.yandexcloud.net/alex-andreevich-20241017/image.jpg" />
+      </body>
+      </html>
